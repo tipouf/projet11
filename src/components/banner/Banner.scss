@@ -1,27 +1,32 @@
 .banner {
-    background-image: url(../../assets/banner.jpeg);
-    background-size: cover;
-    background-position: center;
-    height: 223px;
+  background-image: url(../../assets/banner.jpeg);
+  background-size: cover;
+  background-position: center;
+  height: 223px;
+  width: 100%;
+  position: relative;
+  border-radius: 25px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 25px;
-    filter: brightness(0.5); /* Apply filter to the .banner container */
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+  }
 
-    span {
-        position: absolute;
-        width: max-content;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-        text-align: center;
-        font-size: 48px;
-        font-weight: bold;
-        filter: none; /* Remove filter from the span */
-    }
+  span {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+  }
 }
-

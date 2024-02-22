@@ -1,9 +1,11 @@
 import "./Banner.scss";
-const Banner = () => {
+const Banner = ({text}) => {
   return (
+
     <div className="banner">
-      <span>Bienvenue sur Kasa</span>
+      <span>{text}</span>
     </div>
+
   )
 }
 

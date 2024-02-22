@@ -3,7 +3,7 @@ import { Banner } from "../../components";
 const Home = () => {
   return (
     <>
-      <Banner />
+      <Banner text="Chez vous, partout et ailleurs" />
       <h1>Home</h1>
     </>
   )
