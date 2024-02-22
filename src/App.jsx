@@ -1,21 +1,12 @@
 import { Header, Layout } from "./components";
 import "./App.scss";
-import { Home, About } from "./pages";
-import { Routes, Route } from "react-router-dom";
+import AllRoutes from "./Routes/Routes";
 function App() {
-
   return (
     <div className="app">
       <Header />
       <Layout>
-          <Routes>
-            <Route path="/" element={<Home /> }
-              exact
-            />
-            <Route path="/about" element={<About />}
-              exact
-            />
-          </Routes>
+        <AllRoutes />
       </Layout>
     </div>
   );
