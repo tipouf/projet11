@@ -24,6 +24,10 @@ a:hover {
   color: #535bf2;
 }
 
+a.active {
+  text-decoration: underline;
+}
+
 body {
   -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
   -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
@@ -69,8 +73,12 @@ button:focus-visible {
   }
   a:hover {
     color: #747bff;
-
   }
+
+  a.active {
+    text-decoration: underline;
+  }
+  
   button {
     background-color: #f9f9f9;
   }
