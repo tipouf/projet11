@@ -1,6 +1,13 @@
-const Grid = () => {
+import {Card} from "../../component";
+import "./Grid.scss";
+
+const Grid = ( { logementData }) => {
   return (
-    <div>Grid</div>
+    <div className="grid">
+      {logementData.map((logement) => (
+        <Card key={logement.id} logement={logement} />
+      ))}
+    </div>
   )
 }
 
