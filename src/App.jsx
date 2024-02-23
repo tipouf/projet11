@@ -1,5 +1,6 @@
-import { Header, Layout } from "./components";
-import AllRoutes from "./Routes/Routes";
+import { Header, Footer } from "./component";
+import { Layout } from "./template";
+import AllRoutes from "./route/Route";
 function App() {
   return (
     <>
@@ -7,6 +8,7 @@ function App() {
       <Layout>
         <AllRoutes />
       </Layout>
+      <Footer />
     </>
   );
 }
