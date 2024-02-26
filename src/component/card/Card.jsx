@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 import "./Card.scss"
 const Card = ( { logement }) => {
@@ -11,6 +12,10 @@ const Card = ( { logement }) => {
     </Link>
   </article>
   )
+}
+
+Card.propTypes = {
+  logement: PropTypes.object
 }
 
 export default Card

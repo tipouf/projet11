@@ -1,10 +1,10 @@
 .banner {
-  margin-block: 50px;
+  margin-bottom: 30px;
   background-image: url(../../assets/banner.jpeg);
   background-size: cover;
   background-position: center;
   height: 223px;
-  width: 100%;
+  width: auto;
   position: relative;
   border-radius: 25px;
 
@@ -31,4 +31,16 @@
     font-size: 48px;
     font-weight: bold;
   }
+}
+
+@media screen and (max-width: 768px) {
+  .banner {
+    margin-left: 10px;
+    margin-right: 10px;
+    span {
+      font-size: 24px;
+    }
+
+  
+}
 }

@@ -1,0 +1,35 @@
+.carrousel {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+
+    .carrousel-img {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .carrousel-arrow-left {
+        color: black    ;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    .carrousel-arrow-right {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+}

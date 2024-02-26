@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import {Card} from "../../component";
 import "./Grid.scss";
 
@@ -10,5 +11,10 @@ const Grid = ( { logementData }) => {
     </div>
   )
 }
+
+Grid.propTypes = {
+  logementData: PropTypes.array.isRequired
+}
+
 
 export default Grid

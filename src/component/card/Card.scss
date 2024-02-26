@@ -5,7 +5,7 @@ article {
 
   &:hover {
     img {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
   }
 
@@ -13,8 +13,8 @@ article {
     width: 340px;
     height: 340px;
     object-fit: cover;
-    border-radius: 25px;
-    transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out;
   }
 
   h3 {
@@ -24,5 +24,13 @@ article {
     font-size: 24px;
     margin: 0;
     color: white;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  article {
+    img {
+      width: 100%;
+    }
   }
 }
