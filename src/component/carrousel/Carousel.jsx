@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import "./Carousel.scss";
+import {
+  MdOutlineKeyboardArrowLeft,
+  MdOutlineKeyboardArrowRight,
+} from "react-icons/md";
 
-const Carousel = ({ pictures }) => {
+const Carousel = ({ pictures, title }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const next = () => {
@@ -10,19 +14,24 @@ const Carousel = ({ pictures }) => {
   };
 
   const previous = () => {
-    setCurrentImageIndex((currentImageIndex - 1 + pictures.length) % pictures.length);
+    setCurrentImageIndex(
+      (currentImageIndex - 1 + pictures.length) % pictures.length
+    );
   };
 
   return (
     <div className="carousel">
-      <button className="carousel-arrow-left" onClick={previous} role="button">
-        <i className="fa-solid fa-chevron-left"></i>
+      <button className="carousel-arrow-left arrow" onClick={previous}>
+        <MdOutlineKeyboardArrowLeft />
       </button>
       <div className="carousel-img">
-        <img src={pictures[currentImageIndex]} alt={`image ${currentImageIndex + 1}`} />
+        <img
+          src={pictures[currentImageIndex]}
+          alt={`${title} ${currentImageIndex + 1}`}
+        />
       </div>
-      <button className="carousel-arrow-right " onClick={next} role="button" >
-        <i className="fa-solid fa-chevron-right"></i>
+      <button className="carousel-arrow-right arrow" onClick={next}>
+        <MdOutlineKeyboardArrowRight />
       </button>
     </div>
   );
@@ -30,6 +39,7 @@ const Carousel = ({ pictures }) => {
 
 Carousel.propTypes = {
   pictures: PropTypes.array,
+  title: PropTypes.string,
 };
 
 export default Carousel;
