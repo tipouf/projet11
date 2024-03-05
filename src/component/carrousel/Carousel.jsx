@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 import "./Carousel.scss";
 import {
@@ -9,15 +9,31 @@ import {
 const Carousel = ({ pictures, title }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const next = () => {
+  const next = useCallback(() => {
     setCurrentImageIndex((currentImageIndex + 1) % pictures.length);
-  };
+  }, [currentImageIndex, pictures]);
 
-  const previous = () => {
+  const previous = useCallback(() => {
     setCurrentImageIndex(
       (currentImageIndex - 1 + pictures.length) % pictures.length
     );
-  };
+  }, [currentImageIndex, pictures]);
+
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.key === "ArrowLeft") {
+        previous();
+      } else if (event.key === "ArrowRight") {
+        next();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [currentImageIndex, next, previous]);
 
   return (
     <div className="carousel">

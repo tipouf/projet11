@@ -2,14 +2,14 @@ import { useFetchLogementById } from "../../hook/logementMemo.js";
 import { useParams } from "react-router-dom";
 import "./Detail.scss";
 import { Error404 } from "../.";
-import { Carousel } from "../../component";
+import { Carousel, Accordion, StarRanking } from "../../component";
 
 const Detail = () => {
   const { id } = useParams();
   const logement = useFetchLogementById(id);
   return logement ? (
     <div className="detail">
-      <Carousel pictures={logement.pictures} />
+      <Carousel pictures={logement.pictures}  />
       <h2>{logement.title}</h2>
       <p>{logement.location}</p>
       <div className="tags">
@@ -22,13 +22,12 @@ const Detail = () => {
         <p>{logement.host.name}</p>
       </div>
       <div className="rating">
-        <p>{logement.rating}</p>
+        <StarRanking rating={logement.rating} />
       </div>
 
       <div className="equipments">
-        {logement.equipments.map((equipment) => (
-          <p key={equipment}>{equipment}</p>
-        ))}
+        <Accordion title="Equipements" content={logement.equipments} />
+
       </div>
     </div>
   ) : (
