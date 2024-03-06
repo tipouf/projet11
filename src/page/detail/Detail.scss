@@ -1,0 +1,59 @@
+.detail {
+    .carroussel {
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        .carroussel-arrow-left {
+            color: black    ;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        // .carroussel-img {
+        //     display: flex;
+        //     justify-content: space-between;
+        // }
+
+        .carroussel-arrow-right {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+    }
+
+    img {
+        width: 100%;
+        height: 415px;
+        object-fit: cover;
+    }
+
+    h2 {
+        margin: 0;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .description {
+        margin-top: 20px;
+    }
+
+    .tags{
+        margin-top: 20px;
+    }
+
+    .host {
+        margin-top: 20px;
+    }
+
+    .rating {
+        margin-top: 20px;
+    }
+}
+

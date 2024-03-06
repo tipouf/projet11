@@ -1,0 +1,36 @@
+article {
+  position: relative;
+  color: white;
+  border-radius: 25px;
+
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
+  }
+
+  img {
+    width: 340px;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  h3 {
+    bottom: 16px;
+    left: 16px;
+    position: absolute;
+    font-size: 24px;
+    margin: 0;
+    color: white;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  article {
+    img {
+      width: 100%;
+    }
+  }
+}
