@@ -1,15 +1,15 @@
 import { useFetchLogementById } from "../../hook/logementMemo.js";
-import { useParams } from "react-router-dom";
-import "./Detail.scss";
-import { Error404 } from "../.";
+import { Navigate, useParams } from "react-router-dom";
 import { Carousel, Accordion, StarRanking } from "../../component";
 
 const Detail = () => {
-  const { id } = useParams();
-  const logement = useFetchLogementById(id);
-  return logement ? (
+  const logement = useFetchLogementById(useParams().id);
+
+  if (!logement) return <Navigate to="/404" />;
+
+  return (
     <div className="detail">
-      <Carousel pictures={logement.pictures}  />
+      <Carousel pictures={logement.pictures} />
       <h2>{logement.title}</h2>
       <p>{logement.location}</p>
       <div className="tags">
@@ -24,15 +24,24 @@ const Detail = () => {
       <div className="rating">
         <StarRanking rating={logement.rating} />
       </div>
-
       <div className="equipments">
-        <Accordion title="Equipements" content={logement.equipments} />
-
+        <Accordion title="Equipements">
+          <>
+            {logement.equipments.length === 0 ? (
+              <p>Aucun équipement</p>
+            ) : (
+              <ul>
+                {logement.equipments.map((equipment) => (
+                  <li key={equipment}>{equipment}</li>
+                ))}
+              </ul>
+            )}
+          </>
+        </Accordion>
       </div>
     </div>
-  ) : (
-    <Error404 />
   );
 };
 
 export default Detail;
+

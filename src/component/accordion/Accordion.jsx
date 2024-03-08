@@ -1,10 +1,13 @@
-import React, { useState } from "react";
-import Propstype from "prop-types";
+import { useState } from "react";
+import PropTypes from "prop-types";
 import "./Accordion.scss";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 
-const Accordion = ({ title, content }) => {
+const Accordion = ({ title, children: childrenProp }) => {
+  const children = <>{childrenProp}</>;
   const [isOpen, setIsOpen] = useState(false);
+
+  console.log("children", children);
 
   const toggleAccordion = () => {
     setIsOpen(!isOpen);
@@ -15,19 +18,17 @@ const Accordion = ({ title, content }) => {
         {title} {isOpen ? <FaChevronUp /> : <FaChevronDown />}
       </button>
       {isOpen && (
-        <ul>
-          {content.map((item) => (
-            <li key={title}>{item}</li>
-          ))}
-        </ul>
+        <>
+          {children}
+        </>
       )}
     </div>
   );
 };
 
 Accordion.propTypes = {
-  title: Propstype.string.isRequired,
-  content: Propstype.array.isRequired,
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node || PropTypes.string,
 };
 
 export default Accordion;

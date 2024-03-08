@@ -1,11 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import "./Error.scss";
 
 const Error404 = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="error404">
       <h1>404</h1>
-      <p>Oups! La page que vous demandez n'existe pas.</p>
-      <a href="/">Retourner sur la page d’accueil</a>
+      <p>Oups! cette page n&apos;existe pas.</p>
+      <button onClick={() => navigate("/")}>Retourner sur la page d’accueil</button>
     </div>
   )
 }
