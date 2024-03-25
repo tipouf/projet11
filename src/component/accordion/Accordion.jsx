@@ -1,27 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import "./Accordion.scss";
-import { FaChevronUp, FaChevronDown } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 
-const Accordion = ({ title, children: childrenProp }) => {
-  const children = <>{childrenProp}</>;
+const Accordion = ({ title, children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [height, setHeight] = useState(0);
 
-  console.log("children", children);
+  const ref = useRef(null);
+  console.log("height", height);
+
+  useEffect(() => {
+    if (ref.current && isOpen) {
+      setHeight(ref.current.scrollHeight);
+    }
+  }, [isOpen]);
 
   const toggleAccordion = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="accordion">
+    <div className="accordion {isOpen ? 'open' : ''}">
       <button onClick={toggleAccordion}>
-        {title} {isOpen ? <FaChevronUp /> : <FaChevronDown />}
+        {title} <FaChevronDown className={isOpen ? "open" : "close"} />
       </button>
-      {isOpen && (
-        <>
-          {children}
-        </>
-      )}
+
+      <div className="content"
+        style={{
+          height: isOpen ? `${height}px` : "0px",
+        }}
+      >
+        <div ref={ref}>{children}</div>
+      </div>
     </div>
   );
 };

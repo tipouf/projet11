@@ -52,3 +52,40 @@ button {
   border: none;
   background:none;
 }
+
+
+ul {
+  padding: 0;
+  margin: 0;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+li {
+  font-size: 18px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+}
+
+
+h2 {
+  margin-block: 10px;
+  color: $color-tertiary;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+h3 {
+  margin-top: 0px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}

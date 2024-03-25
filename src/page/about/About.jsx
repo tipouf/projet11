@@ -1,18 +1,18 @@
-import { Accordion } from "../../component";
+import { Accordion, Banner } from "../../component";
+import "./About.scss";
+import aboutData from "../../data/aboutData.json";
 
 const About = () => {
   return (
     <>
-      <Accordion title="Fiabilité">
-        <p>TEXT1</p>
-      </Accordion>
-      <Accordion title="Respect">
-        <p>TEXT2</p>
-      </Accordion>
-      <Accordion title="Service">
-        <p>TEXT3</p>
-        <h1>A propos</h1>
-      </Accordion>
+      <Banner />
+      <div className="accordion-container">
+        {aboutData.map(({ title, content }) => (
+          <div key={title}>
+            <Accordion title={title}>{content}</Accordion>
+          </div>
+        ))}
+      </div>
     </>
   );
 };
